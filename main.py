@@ -2,15 +2,11 @@
 from hw import CountMinSketch
 counts = CountMinSketch(5,3) 
 
-counts.add('A')
-counts.add('B')
-counts.add('C')
-counts.add('A')
-counts.add('A')
-counts.add('C')
-a= counts.min_freq('A')
-b= counts.min_freq('B')
-c= counts.min_freq('C')
+stream=['A','B','C','A','A','C']
+for i in stream:
+    counts.add(i)
 
-print ("the frequency of A in the given stream =",a ,"and for B=",b," and for C =",c)
+query=set(stream) # find the unique elements in the list
     
+for j in query:
+    print ("the frequency of ",j," is ",counts.min_freq(j))
